@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1><b>ALGORITHM VISUALIZER</b></h1>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-item">
+                <button onclick="switchCategory('sorting')" class="nav-button active">
+                    <b>Sorting</b>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="sortingSubmenu">
+                    <button onclick="selectAlgorithm('bubbleSort')">Bubble Sort</button>
+                    <div class="algorithm-complexity" id="bubbleSortComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n)</p>
+                        <p>Average: O(n²)</p>
+                        <p>Worst: O(n²)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <button onclick="selectAlgorithm('selectionSort')">Selection Sort</button>
+                    <div class="algorithm-complexity" id="selectionSortComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n²)</p>
+                        <p>Average: O(n²)</p>
+                        <p>Worst: O(n²)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <button onclick="selectAlgorithm('insertionSort')">Insertion Sort</button>
+                    <div class="algorithm-complexity" id="insertionSortComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n)</p>
+                        <p>Average: O(n²)</p>
+                        <p>Worst: O(n²)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <button onclick="selectAlgorithm('quickSort')">Quick Sort</button>
+                    <div class="algorithm-complexity" id="quickSortComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n log n)</p>
+                        <p>Average: O(n log n)</p>
+                        <p>Worst: O(n²)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                    <button onclick="selectAlgorithm('mergeSort')">Merge Sort</button>
+                    <div class="algorithm-complexity" id="mergeSortComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n log n)</p>
+                        <p>Average: O(n log n)</p>
+                        <p>Worst: O(n log n)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button onclick="switchCategory('searching')" class="nav-button">
+                    <b>Searching</b>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="searchingSubmenu">
+                    <button onclick="startSearch('linear')">Linear Search</button>
+                    <div class="algorithm-complexity" id="linearComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(1)</p>
+                        <p>Average: O(n)</p>
+                        <p>Worst: O(n)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <button onclick="startSearch('binary')">Binary Search</button>
+                    <div class="algorithm-complexity" id="binaryComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(1)</p>
+                        <p>Average: O(log n)</p>
+                        <p>Worst: O(log n)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <button onclick="startSearch('jump')">Jump Search</button>
+                    <div class="algorithm-complexity" id="jumpComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(1)</p>
+                        <p>Average: O(√n)</p>
+                        <p>Worst: O(√n)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button onclick="switchCategory('graph')" class="nav-button">
+                    <b>Graph</b>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="graphSubmenu">
+                    <button onclick="startGraphAlgorithm('bfs')">Breadth-First Search</button>
+                    <div class="algorithm-complexity" id="bfsComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(V + E)</p>
+                        <p>Average: O(V + E)</p>
+                        <p>Worst: O(V + E)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(V)</p>
+                    </div>
+                    <button onclick="startGraphAlgorithm('dfs')">Depth-First Search</button>
+                    <div class="algorithm-complexity" id="dfsComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(V + E)</p>
+                        <p>Average: O(V + E)</p>
+                        <p>Worst: O(V + E)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(V)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button onclick="switchCategory('greedy')" class="nav-button">
+                    <b>Greedy Algorithms</b>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="greedySubmenu">
+                    <button onclick="startGreedyAlgorithm('huffman')">Huffman Coding</button>
+                    <div class="algorithm-complexity" id="huffmanComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n log n)</p>
+                        <p>Average: O(n log n)</p>
+                        <p>Worst: O(n log n)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <button onclick="startGreedyAlgorithm('knapsack')">Fractional Knapsack</button>
+                    <div class="algorithm-complexity" id="knapsackComplexity">
+                        <h4>Time Complexity</h4>
+                        <p>Best: O(n log n)</p>
+                        <p>Average: O(n log n)</p>
+                        <p>Worst: O(n log n)</p>
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="controls">
+                <div id="sortingControls" class="controls-section">
+                    <div class="control-row">
+                        <button onclick="resetArray()" id="generatearray"><b>Generate Array</b></button>
+                        <div class="control-group">
+                            <label for="arraySize">Array Size</label>
+                            <input type="range" id="arraySize" min="10" max="50" value="10" />
+                        </div>
+                        <div class="control-group">
+                            <label for="speed">Speed</label>
+                            <input type="range" id="speed" min="1" max="100" value="50" />
+                        </div>
+                        <div class="control-group">
+                            <button onclick="pauseSort()" id="pauseBtn"><b>Pause</b></button>
+                            <button onclick="stopSort()" id="stopBtn"><b>Quit</b></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="searchingControls" class="controls-section" style="display: none;">
+                    <div class="control-row">
+                        <div class="search-controls">
+                            <input type="number" id="searchValue" placeholder="Enter value to search" min="0" max="1000">
+                        </div>
+                        <div class="control-group">
+                            <button onclick="resetArray()"><b>Generate New Array</b></button>
+                            <label for="arraySize">Array Size</label>
+                            <input type="range" id="arraySizeSearch" min="10" max="50" value="10" />
+                        </div>
+                        <div class="control-group">
+                            <label for="speed">Speed</label>
+                            <input type="range" id="speed" min="1" max="100" value="50" />
+                        </div>
+                        <div class="control-group">
+                            <button onclick="pauseSort()" id="pauseBtn"><b>Pause</b></button>
+                            <button onclick="stopSort()" id="stopBtn"><b>Quit</b></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="graphControls" class="controls-section" style="display: none;">
+                    <div class="control-row">
+                        <div class="graph-inputs">
+                            <div class="node-input">
+                                <label for="sourceNode">Source Node:</label>
+                                <input type="number" id="sourceNode" min="0" value="0">
+                            </div>
+                            <div class="node-input">
+                                <label for="destNode">Destination Node:</label>
+                                <input type="number" id="destNode" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <button onclick="generateRandomGraph()" id="generateGraph"><b>Generate New Graph</b></button>
+                        </div>
+                        <div class="control-group">
+                            <label for="speed">Speed</label>
+                            <input type="range" id="speed" min="1" max="100" value="50" />
+                        </div>
+                        <div class="control-group">
+                            <button onclick="pauseSort()" id="pauseBtn"><b>Pause</b></button>
+                            <button onclick="stopSort()" id="stopBtn"><b>Quit</b></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="greedyControls" class="controls-section">
+                    <div class="control-group">
+                        <label for="huffmanText">Enter text for Huffman coding:</label>
+                        <input type="text" id="huffmanText" placeholder="Enter text">
+                        <button onclick="generateGreedyData()">Generate</button>
+                    </div>
+                    <div class="control-group">
+                        <label for="knapsackCapacity">Knapsack Capacity:</label>
+                        <input type="number" id="knapsackCapacity" min="1" value="50">
+                        <button onclick="generateGreedyData()">Generate</button>
+                    </div>
+                </div>
+            </div>
+
+            <canvas id="visualizer" width="800" height="450"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

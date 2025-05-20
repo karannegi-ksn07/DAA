@@ -1,0 +1,16 @@
+{
+  "name": "sorting-visualizer",
+  "version": "1.0.0",
+  "description": "A visualization tool for sorting algorithms",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html",
+    "build": "echo 'No build step required for this project'",
+    "dev": "live-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+} 
